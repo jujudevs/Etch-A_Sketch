@@ -1,0 +1,61 @@
+.title{  filter: drop-shadow(10px 10px 7px red) 
+    drop-shadow(10px 10px 7px orange)  
+    drop-shadow(10px 10px 7px yellow)  
+    drop-shadow(10px 10px 7px lime)  
+    drop-shadow(10px 10px 7px blue)  
+    drop-shadow(10px 10px 7px indigo) 
+    drop-shadow(10px 10px 7px purple); 
+   
+    padding-bottom: 20px;
+}
+.board{
+    width: 500px;
+    height: 500px;
+    display: grid;
+    border: 20px solid wheat;
+    border-radius: 25px;
+    filter: drop-shadow(10px 10px 7px red) 
+        drop-shadow(10px 10px 7px orange)  
+        drop-shadow(10px 10px 7px yellow)  
+        drop-shadow(10px 10px 7px lime)  
+        drop-shadow(10px 10px 7px blue)  
+        drop-shadow(10px 10px 7px indigo) 
+        drop-shadow(10px 10px 7px purple); 
+}
+
+.content{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -40px;
+}
+
+.button-container{
+    margin-top: 90px;
+}
+
+.sizeBtn{
+    margin-top: 10px;
+}
+
+body{
+    color: #fff;
+    background: linear-gradient(275deg, pink, purple, blue, green, yellow, orange, yellow, green, blue, purple, pink, purple, blue, green, yellow, orange, yellow, green, blue, purple);
+    animation: backgroundGradient 100s ease infinite;
+    padding: 100px;
+    background-size: 100000px 100000px;
+}
+
+
+@keyframes backgroundGradient{
+    0%{
+        background-position: 0% 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0% 0%;
+    }
+}

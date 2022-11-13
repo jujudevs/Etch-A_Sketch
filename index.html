@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Etch a Sketch</title>
+</head>
+<body>
+    <div class="content">
+        <div class="title-container">
+            <h1 class="title">Etch-a-Sketch</h1>
+        </div>
+        <div class = "board"></div>
+    <div class="button-container">
+        <button id="black" onclick="changeColor('black')">Black</button>
+        <button id="grey" onclick="changeColor('grey')">Grey</button>
+        <button id="white" onclick="changeColor('white')">Eraser</button>
+        <button id="random" onclick="changeColor('random')">Random</button>
+        <button id="rasta" onclick="changeColor('rasta')">Rasta</button>
+        <button id="reset" onclick="resetBoard()">Reset</button>
+    </div> 
+    <div class="sizeBtn">
+        <input type="text"  placeholder="Size of Board" value="32" onchange="changeSize(this.value)">   
+        <button>Set Size</button>  
+    </div>
+    
+</body>
+<script>
+let color = "black";
+let click = true;
+
+function populateBoard(size){  
+let board = document.querySelector(".board");
+let squares = board.querySelectorAll("div");
+board.style.gridTemplateColumns = `repeat(${size}, 1fr)`;
+board.style.gridTemplateRows = `repeat(${size}, 1fr)`;
+
+let amount = size * size;
+for (let i = 0; i < amount; i++) {
+    let cell = document.createElement("div");
+    cell.addEventListener("mouseover", colorSquare
+    );
+    cell.style.backgroundColor = "white";
+    cell.classList.add("cell");
+    board.insertAdjacentElement("beforeend", cell);
+}
+}
+
+populateBoard(32);
+
+function changeSize(input){
+    if (input > 100){
+        alert("Please enter a number less than 100");
+    } 
+    else if (input < 2){
+        alert("Please enter a number greater than 1");
+    }
+    
+    else {
+        populateBoard(input);
+}
+}
+
+function colorSquare(){
+    if(click){ 
+    if((color === 'random')){
+        this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+    } if ((color === 'rasta')){
+        this.style.backgroundColor = randomColor();
+    } else {
+        this.style.backgroundColor = color;
+    }
+  }
+}
+
+var rasta = ["red", "green", "yellow", "black"];
+function randomColor() {
+    return rasta[Math.floor(Math.random() * rasta.length)];
+}
+
+function changeColor(choice){
+    color = choice;
+}
+
+function resetBoard(){
+    let board = document.querySelector(".board");
+    let squares = board.querySelectorAll("div");
+    squares.forEach((square) => {
+        square.style.backgroundColor = "white";
+    });
+}
+
+document.querySelector(".board").addEventListener("click", () => {
+    click = !click;
+});
+ 
+
+
+
+
+</script>
+
+</html>
