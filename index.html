@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <link rel="stylesheet" href="styles.css">
     <title>Etch a Sketch</title>
 </head>
@@ -42,6 +43,7 @@ for (let i = 0; i < amount; i++) {
     let cell = document.createElement("div");
     cell.addEventListener("mouseover", colorSquare
     );
+    cell.addEventListener("touchstart", colorSquare);
     cell.style.backgroundColor = "white";
     cell.classList.add("cell");
     board.insertAdjacentElement("beforeend", cell);
@@ -97,7 +99,11 @@ document.querySelector(".board").addEventListener("click", () => {
 });
  
 
+const cell = document.querySelector(".cell");
 
+function colorSquare() {
+  cell.style.backgroundColor = "red";
+}
 
 
 </script>
