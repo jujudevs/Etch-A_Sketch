@@ -44,6 +44,7 @@ for (let i = 0; i < amount; i++) {
     cell.addEventListener("mouseover", colorSquare
     );
     cell.addEventListener("touchstart", colorSquare, { passive: false });
+    cell.addEventListener("touchmove", colorSquare, { passive: false });
     cell.style.backgroundColor = "white";
     cell.classList.add("cell");
     board.insertAdjacentElement("beforeend", cell);
