@@ -43,7 +43,7 @@ for (let i = 0; i < amount; i++) {
     let cell = document.createElement("div");
     cell.addEventListener("mouseover", colorSquare
     );
-    cell.addEventListener("touchstart", colorSquare);
+    cell.addEventListener("touchstart", colorSquare, { passive: false });
     cell.style.backgroundColor = "white";
     cell.classList.add("cell");
     board.insertAdjacentElement("beforeend", cell);
@@ -66,6 +66,7 @@ function changeSize(input){
 }
 
 function colorSquare(){
+    event.preventDefault(); // prevent default touch behavior (scrolling)
     if(click){ 
     if((color === 'random')){
         this.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
@@ -98,13 +99,6 @@ document.querySelector(".board").addEventListener("click", () => {
     click = !click;
 });
  
-
-const cell = document.querySelector(".cell");
-
-function colorSquare() {
-  cell.style.backgroundColor = "red";
-}
-
 
 </script>
 
